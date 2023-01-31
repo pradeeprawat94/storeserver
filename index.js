@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import connectToDatabase from './database/database.js'
 import productRoute from './routes/productRoutes.js'
 import dotenv from 'dotenv'
+const PORT = process.env.PORT || 4001
 
 
 const app = Express()
@@ -18,6 +19,6 @@ app.use(bodyParser.urlencoded({
 app.use('/',productRoute)
 
 connectToDatabase(process.env.PASSWORD,process.env.APP);
-app.listen(process.env.PORT,()=>{
-    console.log("Sever is running at " ,process.env.PORT)
+app.listen(PORT,()=>{
+    console.log("Sever is running at " ,PORT)
 })
